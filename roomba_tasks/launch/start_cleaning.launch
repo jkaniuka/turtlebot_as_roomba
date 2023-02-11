@@ -1,0 +1,7 @@
+<launch>
+  <arg name="room_to_clean"/>
+  <node name="clean_room" pkg="package_303762" type="clean_room"  output="screen">
+  <param name="room_to_clean" type="str" value="$(arg room_to_clean)"/>
+  </node>
+  <node name="marker_tester" pkg="package_303762" type="marker_tester" output="screen"/>
+</launch>

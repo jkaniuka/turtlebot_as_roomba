@@ -1,0 +1,6 @@
+<launch>
+  <arg name="room"/>
+  <node name="go_to_room" pkg="package_303762" type="go_to_room" output="screen">
+  <param name="room" value="$(arg room)"/>
+  </node>
+</launch>
