@@ -1,6 +1,4 @@
 
-# Sprawozdanie Lab 1 i 2
-
 # Zadanie 1 - budowa mapy  
 
 Zgodnie z instrukcją uruchomiłem symulator robota **turtlebot3** w wersji **waffle_pi** w środowisku domowym. Następnie uruchomiłem dwa węzły ROS:  
