@@ -145,13 +145,14 @@ add_executable(move_base src/move_base.cpp)
 add_executable(go_to_room src/go_to_room.cpp)
 add_executable(process_scan_data src/process_scan_data.cpp)
 add_executable(clean_room src/clean_room.cpp)
+add_executable(cleaning_module src/cleaning_module.cpp)
 
 add_executable(marker_tester src/marker_tester.cpp)
 add_library(path_generator_alg src/path_generator_alg.cpp)
 target_link_libraries(marker_tester path_generator_alg)
 
 target_link_libraries(clean_room path_generator_alg)
-
+target_link_libraries(cleaning_module path_generator_alg)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -167,9 +168,10 @@ target_link_libraries(clean_room path_generator_alg)
    ${catkin_LIBRARIES}
  )
  target_link_libraries(go_to_room ${catkin_LIBRARIES})
- target_link_libraries(process_scan_data ${catkin_LIBRARIES})
+target_link_libraries(process_scan_data ${catkin_LIBRARIES})
 target_link_libraries(clean_room ${catkin_LIBRARIES})
 target_link_libraries(marker_tester ${catkin_LIBRARIES})
+target_link_libraries(cleaning_module ${catkin_LIBRARIES})
 
 
 #############
@@ -185,6 +187,10 @@ target_link_libraries(marker_tester ${catkin_LIBRARIES})
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
+catkin_install_python(PROGRAMS
+scripts/fsm.py
+DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
